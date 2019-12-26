@@ -11,22 +11,23 @@ function App() {
 
   return (
     <Fragment>
-    <label>
-      Ingredient:
+      <label>
+        Ingredient:
         <input
-            type="text"
-            value={ingredient}
-            onChange={changeHandler}
-         />
-         </label>
-         <button type="button" onClick={()=>{
-          setShowIngredient(ingredient);
-         setIngredient('')}}>Add</button>
-         
-         <div>
-         {showIngredient}
-         </div>
-         </Fragment>
+          type="text"
+          value={ingredient}
+          onChange={changeHandler}
+        />
+      </label>
+      <button type="button" onClick={() => {
+        setShowIngredient(ingredient);
+        setIngredient('')
+      }}>Add</button>
+
+      <div>
+        {showIngredient}
+      </div>
+    </Fragment>
   );
 }
 
