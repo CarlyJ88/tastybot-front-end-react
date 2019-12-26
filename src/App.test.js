@@ -14,3 +14,8 @@ it('has a label for ingredient', () => {
   const { getByLabelText } = render(<App />);
   expect(getByLabelText('Ingredient:').value).toEqual('');
 });
+
+it('has a add ingredient button', () => {
+  const { getByText } = render(<App />);
+  expect(getByText('Add').constructor.name).toEqual('HTMLButtonElement');
+});
