@@ -28,3 +28,14 @@ it('can add ingredient', () => {
   expect(ingredient.value).toBe('');
   expect(getByText('Apple')).toBeDefined();
 });
+
+it('can add two ingredients', () => {
+  const { getByText, getByLabelText } = render(<App />);
+  const ingredient = getByLabelText('Ingredient:')
+  fireEvent.change(ingredient, { target: { value: 'Apple' } })
+  fireEvent.click(getByText('Add'))
+  fireEvent.change(ingredient, { target: { value: 'Banana' } })
+  fireEvent.click(getByText('Add'))
+  expect(getByText('Apple')).toBeDefined();
+  expect(getByText('Banana')).toBeDefined();
+});
