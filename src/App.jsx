@@ -2,12 +2,16 @@ import React, { useState, Fragment } from 'react';
 import './App.css';
 
 function App() {
-  const [ingredient, setIngredient] = useState('');
+  const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [showIngredient, setShowIngredient] = useState([]);
   const changeHandler = ev => {
     ev.preventDefault();
-    setIngredient(ev.currentTarget.value);
+    setName(ev.currentTarget.value);
+  }
+  const quantityChangeHandler = ev => {
+    ev.preventDefault();
+    setQuantity(ev.currentTarget.value);
   }
 
   return (
@@ -16,7 +20,7 @@ function App() {
         Ingredient:
         <input
           type="text"
-          value={ingredient}
+          value={name}
           onChange={changeHandler}
         />
       </label>
@@ -25,18 +29,19 @@ function App() {
         <input
         type="text"
         value={quantity}
-        onChange={changeHandler}
+        onChange={quantityChangeHandler}
         />
       </label>
       <button type="button" onClick={() => {
-        setShowIngredient([...showIngredient, ingredient]);
-        setIngredient('')
+        setShowIngredient([...showIngredient,{name, quantity}]);
+        setName('')
+        setQuantity('')
       }}>Add</button>
-
       <div>
         <ul>
         {showIngredient.map((item, index) => {
-        return <li key={index}>{item}</li>
+        return <li key={index}>{item.quantity} {item.name}</li>
+
       })}
         </ul>
       </div>

@@ -34,3 +34,14 @@ it('has a label for quantity', () => {
   const { getByLabelText } = render(<App />);
   expect(getByLabelText('Quantity:').value).toEqual('');
 });
+
+it('can add quantity of ingredient', () => {
+  const { getByText, getByLabelText } = render(<App />);
+  const ingredient = getByLabelText('Ingredient:')
+  const quantity = getByLabelText('Quantity:')
+  fireEvent.change(ingredient, { target: { value: 'Apple' } })
+  fireEvent.change(quantity, { target: { value: '1' } })
+  fireEvent.click(getByText('Add'))
+  expect(quantity.value).toBe('');
+  expect(getByText('1 Apple')).toBeDefined();
+});
