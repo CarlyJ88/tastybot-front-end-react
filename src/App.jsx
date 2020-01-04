@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [ingredient, setIngredient] = useState('');
+  const [quantity, setQuantity] = useState('');
   const [showIngredient, setShowIngredient] = useState([]);
   const changeHandler = ev => {
     ev.preventDefault();
@@ -17,6 +18,14 @@ function App() {
           type="text"
           value={ingredient}
           onChange={changeHandler}
+        />
+      </label>
+      <label>
+        Quantity:
+        <input
+        type="text"
+        value={quantity}
+        onChange={changeHandler}
         />
       </label>
       <button type="button" onClick={() => {

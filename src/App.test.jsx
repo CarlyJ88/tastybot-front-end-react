@@ -10,16 +10,6 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('has a label for ingredient', () => {
-  const { getByLabelText } = render(<App />);
-  expect(getByLabelText('Ingredient:').value).toEqual('');
-});
-
-it('has a add ingredient button', () => {
-  const { getByText } = render(<App />);
-  expect(getByText('Add').constructor.name).toEqual('HTMLButtonElement');
-});
-
 it('can add ingredient', () => {
   const { getByText, getByLabelText } = render(<App />);
   const ingredient = getByLabelText('Ingredient:')
@@ -38,4 +28,9 @@ it('can add two ingredients', () => {
   fireEvent.click(getByText('Add'))
   expect(getByText('Apple')).toBeDefined();
   expect(getByText('Banana')).toBeDefined();
+});
+
+it('has a label for quantity', () => {
+  const { getByLabelText } = render(<App />);
+  expect(getByLabelText('Quantity:').value).toEqual('');
 });
