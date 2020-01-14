@@ -10,8 +10,8 @@ it('can show ingredient', () => {
 });
 
 it('can show two ingredients', () => {
-  const showIngredient = [{name:'Apple', quantity:'3'}, {name:'Banana', quantity:'2'}];
+  const showIngredient = [{name:'Apple', quantity:'3', unit:''}, {name:'Peanut Butter', quantity:'500', unit:'g'}];
   const { getByText } = render(<ListIngredients showIngredient={showIngredient} />);
   expect(getByText('3 Apple')).toBeDefined();
-  expect(getByText('2 Banana')).toBeDefined();
+  expect(getByText('500g Peanut Butter')).toBeDefined();
 });

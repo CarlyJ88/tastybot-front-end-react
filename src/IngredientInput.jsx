@@ -3,6 +3,7 @@ import React, { useState, Fragment } from 'react';
 function IngredientInput({onAdd}) {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
+  const [unit, setUnit] = useState('');
   const changeHandler = ev => {
     ev.preventDefault();
     setName(ev.currentTarget.value);
@@ -10,6 +11,11 @@ function IngredientInput({onAdd}) {
   const quantityChangeHandler = ev => {
     ev.preventDefault();
     setQuantity(ev.currentTarget.value);
+  }
+
+  const unitChangeHandler = ev => {
+    ev.preventDefault();
+    setUnit(ev.currentTarget.value);
   }
 
   return (
@@ -29,11 +35,20 @@ function IngredientInput({onAdd}) {
         value={quantity}
         onChange={quantityChangeHandler}
         />
+        </label>
+         <label>
+        Unit:
+        <input
+        type="text"
+        value={unit}
+        onChange={unitChangeHandler}
+        />
       </label>
       <button type="button" onClick={() => {
-        onAdd({name, quantity})
+        onAdd({name, quantity, unit})
         setName('')
         setQuantity('')
+        setUnit('')
       }}>Add</button>
     </Fragment>
   );
