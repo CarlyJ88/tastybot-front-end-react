@@ -8,3 +8,8 @@ it('has a label for ingredient', () => {
     const { getByLabelText } = render(<RecipeInput />);
     expect(getByLabelText('Ingredient:').value).toEqual('');
   });
+
+  it('has a add ingredient button', () => {
+    const { getByText } = render(<RecipeInput />);
+    expect(getByText('Add').constructor.name).toEqual('HTMLButtonElement');
+  });
