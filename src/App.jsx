@@ -1,17 +1,18 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, Component } from 'react';
 import './App.css';
-import IngredientInput from './IngredientInput';
-import ListIngredients from './ListIngredients';
+import IngredientsPage from './IngredientsPage';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const [showIngredient, setShowIngredient] = useState([]);
 
   return (
-    <Fragment>
-      <IngredientInput onAdd={(ingredient) => {setShowIngredient([...showIngredient, ingredient])}}/>
-      <ListIngredients showIngredient={showIngredient} />
-    </Fragment>
-  );
+
+      <Router>
+        <Switch>
+          <Route path="/" exact component={IngredientsPage} />
+        </Switch>
+      </Router>
+  )
 }
 
 export default App;
