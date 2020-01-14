@@ -4,11 +4,6 @@ import RecipeInput from './RecipeInput';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-it('has a label for ingredient', () => {
-    const { getByLabelText } = render(<RecipeInput />);
-    expect(getByLabelText('Ingredient:').value).toEqual('');
-  });
-
   it('has a add ingredient button', () => {
     const { getByText } = render(<RecipeInput />);
     expect(getByText('Add').constructor.name).toEqual('HTMLButtonElement');
@@ -32,4 +27,9 @@ it('has a label for ingredient', () => {
     fireEvent.click(getByText('Add'))
     expect(getByText('Apple')).toBeDefined();
     expect(getByText('Banana')).toBeDefined();
+  });
+
+  it('has a label for quantity', () => {
+    const { getByLabelText } = render(<RecipeInput />);
+    expect(getByLabelText('Quantity:').value).toEqual('');
   });
