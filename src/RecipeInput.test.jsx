@@ -57,3 +57,8 @@ import '@testing-library/jest-dom/extend-expect';
     expect(quantity.value).toBe('');
     expect(getByText('100g Apple')).toBeDefined();
   });
+
+  it('has a label for method', () => {
+    const { getByLabelText } = render(<RecipeInput />);
+    expect(getByLabelText('Method:').value).toEqual('');
+  });
