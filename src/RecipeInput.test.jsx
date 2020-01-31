@@ -62,3 +62,8 @@ import '@testing-library/jest-dom/extend-expect';
     const { getByLabelText } = render(<RecipeInput />);
     expect(getByLabelText('Method:').value).toEqual('');
   });
+
+  it('has a add a method button', () => {
+    const { getByText } = render(<RecipeInput />);
+    expect(getByText('Add method').constructor.name).toEqual('HTMLButtonElement');
+  });

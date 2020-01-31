@@ -15,6 +15,7 @@ function RecipeInput() {
                     onChange={setInput}
                 />
             </label>
+            <button type="button" >Add method</button>
         </Fragment>
     );
 }
