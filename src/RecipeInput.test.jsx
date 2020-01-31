@@ -67,3 +67,12 @@ import '@testing-library/jest-dom/extend-expect';
     const { getByText } = render(<RecipeInput />);
     expect(getByText('Add method').constructor.name).toEqual('HTMLButtonElement');
   });
+
+  it('can add a method', () => {
+    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const input = getByLabelText('Method:')
+    fireEvent.change(input, { target: { value: 'Begin by whisking together the butter and the sugar.' } })
+    fireEvent.click(getByText('Add method'))
+    expect(input.value).toBe('');
+    expect(getByText('Begin by whisking together the butter and the sugar.')).toBeDefined();
+  });
