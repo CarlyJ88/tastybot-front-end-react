@@ -3,7 +3,7 @@ import IngredientsPage from './IngredientsPage';
 
 function RecipeInput() {
     const [input, setInput] = useState('');
-    const [showInput, setShowInput] = useState('');
+    const [showInput, setShowInput] = useState([]);
 
     const inputChangeHandler = ev => {
         ev.preventDefault();
@@ -13,7 +13,6 @@ function RecipeInput() {
     return (
         <Fragment>
             <IngredientsPage />
-            {showInput}
             <label>
                 Method:
         <input
@@ -23,9 +22,14 @@ function RecipeInput() {
                 />
             </label>
             <button type="button" onClick={() => {
-                setShowInput(input);
+                setShowInput([...showInput, input]);
                 setInput('');
             }}>Add method</button>
+            <ol>
+            {showInput.map((item, index) => {
+            return <li key={index}>{item}</li>
+            })}
+            </ol>
         </Fragment>
     );
 }

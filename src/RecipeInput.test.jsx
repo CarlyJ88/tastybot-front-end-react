@@ -76,3 +76,14 @@ import '@testing-library/jest-dom/extend-expect';
     expect(input.value).toBe('');
     expect(getByText('Begin by whisking together the butter and the sugar.')).toBeDefined();
   });
+
+  it('can add a multiple method steps', () => {
+    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const input = getByLabelText('Method:')
+    fireEvent.change(input, { target: { value: 'Begin by whisking together the butter and the sugar.' } })
+    fireEvent.click(getByText('Add method'))
+    fireEvent.change(input, { target: { value: 'Add the flour.' } })
+    fireEvent.click(getByText('Add method'))
+    expect(getByText('Begin by whisking together the butter and the sugar.')).toBeDefined();
+    expect(getByText('Add the flour.')).toBeDefined();
+  });
