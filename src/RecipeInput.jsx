@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import IngredientsPage from './IngredientsPage';
+import IngredientInput from './IngredientInput';
+import ListIngredients from './ListIngredients';
 
 function RecipeInput() {
     const [input, setInput] = useState('');
     const [showInput, setShowInput] = useState([]);
+    const [showIngredient, setShowIngredient] = useState([]);
 
     const inputChangeHandler = ev => {
         ev.preventDefault();
@@ -12,7 +14,7 @@ function RecipeInput() {
 
     return (
         <Fragment>
-            <IngredientsPage />
+            <IngredientInput onAdd={(ingredient) => {setShowIngredient([...showIngredient, ingredient])}} />
             <label>
                 Method:
         <input
@@ -25,6 +27,7 @@ function RecipeInput() {
                 setShowInput([...showInput, input]);
                 setInput('');
             }}>Add method</button>
+             <ListIngredients showIngredient={showIngredient} />
             <ol>
             {showInput.map((item, index) => {
             return <li key={index}>{item}</li>
