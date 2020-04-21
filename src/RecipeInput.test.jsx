@@ -1,16 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import RecipeInput from './RecipeInput';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import RecipePage from './RecipePage';
 
   it('has a add ingredient button', () => {
-    const { getByText } = render(<RecipeInput />);
+    const { getByText } = render(<RecipePage />);
     expect(getByText('Add').constructor.name).toEqual('HTMLButtonElement');
   });
 
   it('can add ingredient', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const ingredient = getByLabelText('Ingredient:')
     fireEvent.change(ingredient, { target: { value: 'Apple' } })
     fireEvent.click(getByText('Add'))
@@ -19,7 +18,7 @@ import '@testing-library/jest-dom/extend-expect';
   });
 
   it('can add two ingredients', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const ingredient = getByLabelText('Ingredient:')
     fireEvent.change(ingredient, { target: { value: 'Apple' } })
     fireEvent.click(getByText('Add'))
@@ -30,7 +29,7 @@ import '@testing-library/jest-dom/extend-expect';
   });
 
   it('can add quantity of ingredient', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const ingredient = getByLabelText('Ingredient:')
     const quantity = getByLabelText('Quantity:')
     fireEvent.change(ingredient, { target: { value: 'Apple' } })
@@ -41,12 +40,12 @@ import '@testing-library/jest-dom/extend-expect';
   });
 
   it('has a label for unit', () => {
-    const { getByLabelText } = render(<RecipeInput />);
+    const { getByLabelText } = render(<RecipePage />);
     expect(getByLabelText('Unit:').value).toEqual('');
   });
 
   it('can add unit of ingredient', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const ingredient = getByLabelText('Ingredient:')
     const quantity = getByLabelText('Quantity:')
     const unit = getByLabelText('Unit:')
@@ -59,17 +58,17 @@ import '@testing-library/jest-dom/extend-expect';
   });
 
   it('has a label for method', () => {
-    const { getByLabelText } = render(<RecipeInput />);
+    const { getByLabelText } = render(<RecipePage />);
     expect(getByLabelText('Method:').value).toEqual('');
   });
 
   it('has a add a method button', () => {
-    const { getByText } = render(<RecipeInput />);
+    const { getByText } = render(<RecipePage />);
     expect(getByText('Add method').constructor.name).toEqual('HTMLButtonElement');
   });
 
   it('can add a method', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const input = getByLabelText('Method:')
     fireEvent.change(input, { target: { value: 'Begin by whisking together the butter and the sugar.' } })
     fireEvent.click(getByText('Add method'))
@@ -78,7 +77,7 @@ import '@testing-library/jest-dom/extend-expect';
   });
 
   it('can add a multiple method steps', () => {
-    const { getByText, getByLabelText } = render(<RecipeInput />);
+    const { getByText, getByLabelText } = render(<RecipePage />);
     const input = getByLabelText('Method:')
     fireEvent.change(input, { target: { value: 'Begin by whisking together the butter and the sugar.' } })
     fireEvent.click(getByText('Add method'))
