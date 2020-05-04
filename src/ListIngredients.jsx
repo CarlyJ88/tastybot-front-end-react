@@ -6,7 +6,7 @@ function ListIngredients({showIngredient}) {
   <div>
   <ul>
   {showIngredient.map((item, index) => {
-  return <li key={index}>{item.quantity}{item.unit} {item.name}</li>
+  return <li key={index}>{item.quantity}{item.unit} {item.ingredient_name}</li>
   
   })}
   </ul>

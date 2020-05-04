@@ -45,7 +45,7 @@ function IngredientInput({onAdd}) {
         />
       </label>
       <button type="button" onClick={() => {
-        onAdd({name, quantity, unit})
+        onAdd({ingredient_name: name, quantity, unit})
         setName('')
         setQuantity('')
         setUnit('')
