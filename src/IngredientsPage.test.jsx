@@ -20,9 +20,4 @@ it('shows ingredient', async () => {
     await waitForDomChange();
     expect(getByText('Chocolate')).toBeDefined();
   })
-  // const { getByText } = render(<IngredientsPage />);
-  // await getCurrentStock();
-  // expect(getByText('Chocolate')).toBeDefined();
-  // await act(() => promise);
-  // expect(IngredientsPage()).toEqual('Chocolate')
 })
