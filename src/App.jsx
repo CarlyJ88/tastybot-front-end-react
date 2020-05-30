@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import IngredientsPage from './IngredientsPage';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RecipePage from './RecipePage';
+import RecipeInput from './RecipePage';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={IngredientsPage} />
-          <Route path="/recipe" exact component={RecipePage} />
+          <Route path="/recipe" exact component={RecipeInput} />
         </Switch>
       </Router>
   )

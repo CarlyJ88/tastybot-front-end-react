@@ -1,8 +1,7 @@
-import axios from 'axios'
-import { serviceHandlerIntegration, addToCurrentStock } from './serviceHandlerIntegration'
+import { addToCurrentStock, getCurrentStock } from './serviceHandlerIntegration'
 
 it('Can get currect stock data', async() => {
-  const response = await serviceHandlerIntegration()
+  const response = await getCurrentStock()
   expect(response.status).toEqual(200)
 });
 

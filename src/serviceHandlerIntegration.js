@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function serviceHandlerIntegration () {
+export async function getCurrentStock () {
   const currentStock = await axios.get('http://localhost:4000/list')
   return currentStock
 }

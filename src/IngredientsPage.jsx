@@ -2,15 +2,15 @@ import React, { useState, Fragment, useEffect } from 'react';
 import './App.css';
 import IngredientInput from './IngredientInput';
 import ListIngredients from './ListIngredients';
-import { serviceHandlerIntegration } from './serviceHandlerIntegration';
+import { getCurrentStock } from './serviceHandlerIntegration';
 
 function IngredientsPage() {
     const [showIngredient, setShowIngredient] = useState([]);
 
     useEffect(()=>{
       async function becauseIhaveTo() {
-      const ingredients = await serviceHandlerIntegration();
-      console.log(ingredients.data, "the ingredients!!!!!")
+      const ingredients = await getCurrentStock();
+      // console.log(ingredients.data, "the ingredients!!!!!")
       setShowIngredient(ingredients.data);
     }
     becauseIhaveTo();

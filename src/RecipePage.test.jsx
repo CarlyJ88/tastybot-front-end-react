@@ -13,7 +13,6 @@ import RecipePage from './RecipePage';
     const ingredient = getByLabelText('Ingredient:')
     fireEvent.change(ingredient, { target: { value: 'Apple' } })
     fireEvent.click(getByText('Add'))
-    // expect(ingredient.value).toBe('');
     expect(getByText('Apple')).toBeDefined();
   });
 
