@@ -6,10 +6,11 @@ export async function getCurrentStock () {
 }
 
 export async function addToCurrentStock (item) {
-  const add = await axios.post('http://localhost:4000/add-ingredient', (item))
+  const add = await axios.post('http://localhost:4000/add-ingredient', item)
   return add
 }
 
-export async function deleteFromCurrentStock (id) {
-  const deleteItem = await axios.delete('http://localhost:4000/delete-ingredient', (id))
+export async function deleteFromCurrentStock (item) {
+  const deleteItem = await axios.delete('http://localhost:4000/delete-ingredient', {data:item})
+  return deleteItem
 }
