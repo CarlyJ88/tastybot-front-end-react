@@ -20,36 +20,41 @@ function IngredientInput({onAdd}) {
 
   return (
     <Fragment>
-      <label>
+      <div style={{margin: "auto", width: "1060px", color: "#070D0D"}}> {/*202px*/}
+      <label style={{margin: "24px"}}>
         Ingredient:
         <input
           type="text"
           value={name}
           onChange={changeHandler}
+          style={{ margin: "24px", backgroundColor: 'inherit', borderColor: "darkOliveGreen", padding: "4px"}}
         />
       </label>
-      <label>
+      <label style={{margin: "24px"}}>
         Quantity:
         <input
         type="text"
         value={quantity}
         onChange={quantityChangeHandler}
+        style={{ margin: "24px", backgroundColor: 'inherit', borderColor: "darkOliveGreen", padding: "4px"}}
         />
         </label>
-         <label>
+         <label style={{margin: "24px"}}>
         Unit:
         <input
         type="text"
         value={unit}
         onChange={unitChangeHandler}
+        style={{margin: "24px", backgroundColor: 'inherit', borderColor: "darkOliveGreen", padding: "4px"}}
         />
       </label>
-      <button type="button" onClick={() => {
+      <button type="button" style={{outline: "none", backgroundColor: "inherit", color: "#070D0D", margin: "24px", fontSize: "16px", borderColor: "darkOliveGreen", padding: "8px", fontWeight: "bold"}} onClick={() => {
         onAdd({ingredient_name: name, quantity, unit})
         setName('')
         setQuantity('')
         setUnit('')
-      }}>Add</button>
+      }}>Submit</button>
+      </div>
     </Fragment>
   );
 }
