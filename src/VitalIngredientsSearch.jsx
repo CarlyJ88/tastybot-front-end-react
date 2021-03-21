@@ -4,7 +4,7 @@ function VitalIngredientsSearch() {
 
   return (
     <Fragment>
-      <div style={{ backgroundColor: "WhiteSmoke", height: "100%", margin: "24px", color: "#070D0D" }}>
+      <div style={{margin: "24px", color: "#070D0D" }}>
       <h4>Vital ingredients</h4>
         <form>
           <label style={{margin: "24px"}}>
