@@ -1,0 +1,44 @@
+.container {
+  color: #3d4447;
+  background: #3d4447;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: block;
+  padding-top: 50px;
+}
+
+.input-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: whitesmoke;
+}
+
+.input-label {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  
+}
+
+.input-text {
+  width: 90px;
+  margin-right: 10px;
+}
+
+.input-field {
+  background-color: inherit; 
+  border: #3d4447 2px solid;
+}
+
+.input-button {
+  outline: none;
+  background-color: inherit;
+  color: #3d4447;
+  margin: 24px;
+  font-size: 16px;
+  border: #3d4447 2px solid;
+  padding: 8px;
+  font-weight: bold;
+}
