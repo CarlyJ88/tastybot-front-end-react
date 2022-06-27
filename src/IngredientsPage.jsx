@@ -1,17 +1,31 @@
+// initital load = show add ingredient button + list ingredients
+// after clicking on add ingredient button show only the ingredient input
+// after clicking submit on the ingredient input show add ingredient button and list ingredients again
+
+
+// why would you want to load the hidden component?
+// why are you trying to do this from css?
+// why do you need 2 states?
+
 import React, { useState, Fragment, useEffect } from 'react';
 import './App.css';
 import IngredientInput from './IngredientInput';
 import ListIngredients from './ListIngredients';
-import CuisineSearch from './CuisineSearch';
-import VitalIngredientsSearch from './VitalIngredientsSearch';
+import Header from './header';
+import "./IngredientsPage.css";
 import { getCurrentStock, addToCurrentStock, deleteFromCurrentStock } from './serviceHandlerIntegration';
 
 function IngredientsPage() {
     const [showIngredient, setShowIngredient] = useState([]);
+    const [showContent, setShowContent] = React.useState("List")
+    const onClick = () => { 
+      setShowContent("Input");
+    }
 
     const addIngredient = async (ingredient) => {
       const savedIngredient= await addToCurrentStock(ingredient)
       setShowIngredient([...showIngredient, savedIngredient.data])
+      setShowContent("List");
     }
 
     const handleRemove  = (index) => {
@@ -30,12 +44,12 @@ function IngredientsPage() {
 
 return (
   <Fragment>
-    <h1 style={{textAlign: "center", backgroundColor: "darkOliveGreen", color: "cornsilk", marginTop: "0px"}}>Welcome to TastyBot</h1>
-    <h2 style={{margin: "24px", color: "#070D0D"}}>What's in my cupboard?</h2>
-    <CuisineSearch />
-    <VitalIngredientsSearch />
-    <IngredientInput onAdd={addIngredient} />
-    <ListIngredients showIngredient={showIngredient} handleRemove={handleRemove} />
+    <Header/>
+      { showContent === "Input" ?  <IngredientInput onAdd={addIngredient} /> : null }
+      { showContent === "List" ? <Fragment>
+      <input className="addIngredient" type="submit" value="AddIngredient" onClick={onClick} />
+      <ListIngredients className="list" showIngredient={showIngredient} handleRemove={handleRemove} />
+      </Fragment> : null}
   </Fragment>
   );
 }
