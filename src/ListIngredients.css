@@ -1,0 +1,32 @@
+.container-two {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.list-ingredients {
+  list-style-type: none;
+  text-align: left;
+}
+
+.item {
+  text-overflow: ellipsis;
+}
+
+.button {
+  outline: none;
+  background: inherit;
+  border: none;
+  text-align: center;
+  font-size: 8px;
+  color: #070D0D;
+}
+
+.add-ingredient {
+  outline: none;
+  border: none;
+  text-align: center;
+  color: #070D0D;
+  padding: 10px;
+  justify-content: center;
+}

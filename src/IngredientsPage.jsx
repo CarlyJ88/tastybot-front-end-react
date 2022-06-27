@@ -46,10 +46,8 @@ return (
   <Fragment>
     <Header/>
       { showContent === "Input" ?  <IngredientInput onAdd={addIngredient} /> : null }
-      { showContent === "List" ? <Fragment>
-      <input className="addIngredient" type="submit" value="AddIngredient" onClick={onClick} />
-      <ListIngredients className="list" showIngredient={showIngredient} handleRemove={handleRemove} />
-      </Fragment> : null}
+      { showContent === "List" ? <ListIngredients className="list" showIngredient={showIngredient} 
+      handleRemove={handleRemove} onClick={onClick} /> : null}
   </Fragment>
   );
 }

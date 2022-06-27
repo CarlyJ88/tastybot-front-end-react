@@ -1,17 +1,17 @@
 import React from 'react';
+import './ListIngredients.css';
 
-function ListIngredients({ showIngredient, handleRemove }) {
-
+function ListIngredients({ showIngredient, handleRemove, onClick }) {
   return (
-    <div style={{color: "#070D0D"}}>
-      <h2 style={{margin: "24px", color: "#070D0D"}}>What's in my cupboard?</h2>
-      <h4 style={{textAlign: "center", fontSize: "24px"}}>Ingredients</h4>
-      <ul>
+    <div className="container-two">
+      <p style={{textAlign: "center", fontSize: "24px", color: "#070D0D", margin: "0"}}>Ingredients</p>
+      <ul className="list-ingredients">
         {showIngredient.map((item, index) => {
           console.log(item, 'item')
-          return <li key={index} style={{listStyleType: "none"}}>{item.quantity}{item.unit} {item.ingredient_name} {item.link} <button type="button" style={{outline: "none", backgroundColor: "inherit", border: "none", textAlign: "center", fontSize: "8px", color: "#070D0D"}} onClick={() => handleRemove(index)}>Remove</button></li>
+          return <li className="item" key={index} >{item.quantity}{item.unit} <a href={item.link}>{item.ingredient_name}</a> <button type="button" className="button" onClick={() => handleRemove(index)}>Remove</button></li>
         })}
       </ul>
+      <input className="add-ingredient" type="submit" value="Add Ingredient" onClick={onClick} />
     </div>
   )
 }
