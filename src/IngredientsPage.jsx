@@ -12,7 +12,6 @@ import './App.css';
 import IngredientInput from './IngredientInput';
 import ListIngredients from './ListIngredients';
 import Header from './header';
-import "./IngredientsPage.css";
 import { getCurrentStock, addToCurrentStock, deleteFromCurrentStock } from './serviceHandlerIntegration';
 
 function IngredientsPage() {
