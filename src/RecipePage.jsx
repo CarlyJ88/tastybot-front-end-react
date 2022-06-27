@@ -9,13 +9,16 @@ function RecipePage() {
   const [showIngredient, setShowIngredient] = useState([]);
   const [showInput, setShowInput] = useState([]);
 
-return (
-  <Fragment>
-    <IngredientInput onAdd={(ingredient) => {setShowIngredient([...showIngredient, ingredient])}}/>
-    <MethodInput onAdd={(input => {setShowInput([...showInput, input])})}/>
-    <ListIngredients showIngredient={showIngredient} />
-    <ListMethod showInput={showInput} />
-  </Fragment>
+  return (
+    <Fragment>
+      <div style={{}}>
+        <IngredientInput onAdd={(ingredient) => {setShowIngredient([...showIngredient, ingredient])}} />
+        <MethodInput onAdd={(input => { setShowInput([...showInput, input]) })} />
+
+        <ListIngredients showIngredient={showIngredient} />
+        <ListMethod showInput={showInput} />
+      </div>
+    </Fragment>
   );
 
 }

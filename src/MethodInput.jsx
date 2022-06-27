@@ -1,12 +1,7 @@
 import React, { Fragment, useState } from 'react';
-// import IngredientInput from './IngredientInput';
-// import ListIngredients from './ListIngredients';
-// import ListMethod from './ListMethod';
 
-function MethodInput({onAdd}) {
+function MethodInput({ onAdd }) {
     const [input, setInput] = useState('');
-    // const [showInput, setShowInput] = useState([]);
-    // const [showIngredient, setShowIngredient] = useState([]);
 
     const inputChangeHandler = ev => {
         ev.preventDefault();
@@ -15,22 +10,23 @@ function MethodInput({onAdd}) {
 
     return (
         <Fragment>
-            {/* <IngredientInput onAdd={(ingredient) => {setShowIngredient([...showIngredient, ingredient])}} /> */}
-            <label>
-                Method:
+            <div style={{}}>
+                <label style={{margin: "24px"}}>
+                    Method:
         <input
-                    type="text"
-                    value={input}
-                    onChange={inputChangeHandler}
-                />
-            </label>
-            <button type="button" onClick={() => {
-                onAdd(input)
-                // setShowInput([...showInput, input]);
-                setInput('');
-            }}>Add method</button>
-             {/* <ListIngredients showIngredient={showIngredient} /> */}
-             {/* <ListMethod showInput={showInput}/> */}
+                        type="text"
+                        value={input}
+                        onChange={inputChangeHandler}
+                        style={{ margin: "24px", backgroundColor: 'inherit', borderColor: "darkOliveGreen", padding: "4px" }}
+                    />
+                </label>
+                <button type="button"
+                    style={{ outline: "none", backgroundColor: "inherit", margin: "24px", fontSize: "16px", borderColor: "darkOliveGreen", padding: "8px", fontWeight: "bold" }}
+                    onClick={() => {
+                        onAdd(input)
+                        setInput('');
+                    }}>Add method</button>
+            </div>
         </Fragment>
     );
 }
