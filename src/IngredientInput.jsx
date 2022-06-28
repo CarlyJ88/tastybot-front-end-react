@@ -15,15 +15,13 @@ const options = [
   { value: 'dairy-alternatives', label: 'Dairy Alternatives' },
 ]
 
-const MyComponent = () => (
-  <Select options={options} />
-)
-
 function IngredientInput({onAdd}) {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState('');
   const [link, setLink] = useState('');
+  const [category, setCategory] = useState('');
+
   const changeHandler = ev => {
     ev.preventDefault();
     setName(ev.currentTarget.value);
@@ -41,6 +39,12 @@ function IngredientInput({onAdd}) {
   const linkChangeHandler = ev => {
     ev.preventDefault();
     setLink(ev.currentTarget.value);
+  }
+
+  const categoryChangeHandler = selectedOption => {
+    console.log(selectedOption.value, 'selectedOption')
+    // ev.preventDefault();
+    setCategory(selectedOption.value);
   }
 
   return (
@@ -83,9 +87,10 @@ function IngredientInput({onAdd}) {
         className="input-field"
         />
         </label>
-        <MyComponent/>
+        <Select options={options} onChange={categoryChangeHandler} />
       <button type="button" className="input-button" onClick={() => {
-        onAdd({ingredient_name: name, quantity, unit, link})
+        console.log(category, 'category')
+        onAdd({ingredient_name: name, quantity, unit, link, categories: category})
         setName('')
         setQuantity('')
         setUnit('')
