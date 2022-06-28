@@ -1,5 +1,23 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, Component } from 'react';
 import './IngredientInput.css';
+import Select from 'react-select'
+
+const options = [
+  { value: 'grains', label: 'Grains' },
+  { value: 'vegetables', label: 'Vegetables' },
+  { value: 'fruit', label: 'Fruit' },
+  { value: 'pulses', label: 'Pulses' },
+  { value: 'junk-food', label: 'Junk food' },
+  { value: 'treats', label: 'Treats' },
+  { value: 'beverages', label: 'Beverages' },
+  { value: 'proteins', label: 'Proteins' },
+  { value: 'oils', label: 'Oils' },
+  { value: 'dairy-alternatives', label: 'Dairy Alternatives' },
+]
+
+const MyComponent = () => (
+  <Select options={options} />
+)
 
 function IngredientInput({onAdd}) {
   const [name, setName] = useState('');
@@ -65,6 +83,7 @@ function IngredientInput({onAdd}) {
         className="input-field"
         />
         </label>
+        <MyComponent/>
       <button type="button" className="input-button" onClick={() => {
         onAdd({ingredient_name: name, quantity, unit, link})
         setName('')
