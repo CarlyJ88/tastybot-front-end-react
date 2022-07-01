@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
-import './App.css';
-import IngredientInput from './IngredientInput';
-import ListIngredients from './ListIngredients';
+import '../App.css';
+import IngredientInput from '../Ingredients/IngredientInput';
+import ListIngredients from '../Ingredients/ListIngredients';
 import MethodInput from './MethodInput';
 import ListMethod from './ListMethod';
 

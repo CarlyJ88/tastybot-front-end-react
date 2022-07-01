@@ -5,7 +5,7 @@ import React from 'react';
 import { render, act, waitForDomChange } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import IngredientsPage from './IngredientsPage';
-import { getCurrentStock } from './serviceHandlerIntegration';
+import { getCurrentStock } from '../serviceHandlerIntegration';
 
 const items = [{ingredient_name: 'Chocolate'}];
 const res = {data: items};

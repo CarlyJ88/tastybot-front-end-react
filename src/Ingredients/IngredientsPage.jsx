@@ -8,11 +8,11 @@
 // why do you need 2 states?
 
 import React, { useState, Fragment, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 import IngredientInput from './IngredientInput';
 import ListIngredients from './ListIngredients';
-import Header from './header';
-import { getCurrentStock, addToCurrentStock, deleteFromCurrentStock } from './serviceHandlerIntegration';
+import Header from '../header';
+import { getCurrentStock, addToCurrentStock, deleteFromCurrentStock } from '../serviceHandlerIntegration';
 
 function IngredientsPage() {
     const [showIngredient, setShowIngredient] = useState([]);

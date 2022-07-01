@@ -1,18 +1,20 @@
-import React, { useState, Fragment, Component } from 'react';
+import React, { useState, Fragment } from 'react';
 import './IngredientInput.css';
 import Select from 'react-select'
 
 const options = [
-  { value: 'grains', label: 'Grains' },
-  { value: 'vegetables', label: 'Vegetables' },
-  { value: 'fruit', label: 'Fruit' },
-  { value: 'pulses', label: 'Pulses' },
-  { value: 'junk-food', label: 'Junk food' },
-  { value: 'treats', label: 'Treats' },
   { value: 'beverages', label: 'Beverages' },
-  { value: 'proteins', label: 'Proteins' },
-  { value: 'oils', label: 'Oils' },
+  { value: 'condiment', label: 'Condiment' },
   { value: 'dairy-alternatives', label: 'Dairy Alternatives' },
+  { value: 'fruit', label: 'Fruit' },
+  { value: 'grains', label: 'Grains' },
+  { value: 'junk-food', label: 'Junk food' },
+  { value: 'nuts-and-seeds', label: 'Nuts and seeds' },
+  { value: 'oils', label: 'Oils' },
+  { value: 'proteins', label: 'Proteins' },
+  { value: 'pulses', label: 'Pulses' },
+  { value: 'treats', label: 'Treats' },
+  { value: 'vegetables', label: 'Vegetables' },
 ]
 
 function IngredientInput({onAdd}) {
@@ -42,8 +44,6 @@ function IngredientInput({onAdd}) {
   }
 
   const categoryChangeHandler = selectedOption => {
-    console.log(selectedOption.value, 'selectedOption')
-    // ev.preventDefault();
     setCategory(selectedOption.value);
   }
 
